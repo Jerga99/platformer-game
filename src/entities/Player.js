@@ -1,6 +1,6 @@
 
 import Phaser from 'phaser';
-
+import initAnimations from './playerAnims';
 
 class Player extends Phaser.Physics.Arcade.Sprite {
   constructor(scene, x, y) {
@@ -21,12 +21,7 @@ class Player extends Phaser.Physics.Arcade.Sprite {
     this.body.setGravityY(this.gravity);
     this.setCollideWorldBounds(true);
 
-    this.scene.anims.create({
-      key: 'run',
-      frames: this.scene.anims.generateFrameNumbers('player', {start: 11, end: 16}),
-      frameRate: 8,
-      repeat: -1
-    })
+    initAnimations(this.scene.anims);
   }
 
   initEvents() {
@@ -46,7 +41,7 @@ class Player extends Phaser.Physics.Arcade.Sprite {
 
     // dont play it again if it's already playing
     // second value -> ignoreIfPlaying
-    this.play('run', true);
+    this.play('idle', true);
   }
 }
 
