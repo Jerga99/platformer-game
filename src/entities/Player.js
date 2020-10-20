@@ -29,7 +29,8 @@ class Player extends Phaser.Physics.Arcade.Sprite {
   }
 
   update() {
-    const { left, right } = this.cursors;
+    const { left, right, space, up } = this.cursors;
+    const onFloor = this.body.onFloor();
 
     if (left.isDown) {
       this.setVelocityX(-this.playerSpeed);
@@ -39,6 +40,10 @@ class Player extends Phaser.Physics.Arcade.Sprite {
       this.setFlipX(false);
     } else {
       this.setVelocityX(0);
+    }
+
+    if ((space.isDown || up.isDown) && onFloor) {
+      this.setVelocityY(-this.playerSpeed * 1.5)
     }
 
     this.body.velocity.x !== 0 ?
