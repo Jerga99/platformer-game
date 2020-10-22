@@ -33,6 +33,7 @@ class Play extends Phaser.Scene {
     this.createEndOfLevel(playerZones.end, player);
     this.setupFollowupCameraOn(player);
 
+    this.plotting = false;
     this.graphics = this.add.graphics();
     this.line = new Phaser.Geom.Line();
     this.graphics.lineStyle(1, 0x00ff00);
@@ -44,13 +45,16 @@ class Play extends Phaser.Scene {
   startDrawing(pointer) {
     this.line.x1 = pointer.worldX;
     this.line.y1 = pointer.worldY;
+    this.plotting = true;
   }
 
   finishDrawing(pointer) {
     this.line.x2 = pointer.worldX;
     this.line.y2 = pointer.worldY;
 
+    this.graphics.clear();
     this.graphics.strokeLineShape(this.line);
+    this.plotting = false;
   }
 
   createMap() {
@@ -124,6 +128,17 @@ class Play extends Phaser.Scene {
       eolOverlap.active = false;
       console.log('Payer has won!');
     })
+  }
+
+  update() {
+    if (this.plotting) {
+      const pointer = this.input.activePointer;
+
+      this.line.x2 = pointer.worldX;
+      this.line.y2 = pointer.worldY;
+      this.graphics.clear();
+      this.graphics.strokeLineShape(this.line);
+    }
   }
 }
 
