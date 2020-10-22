@@ -1,6 +1,6 @@
 
 import Phaser from 'phaser';
-import initAnimations from './playerAnims';
+import initAnimations from './anims/playerAnims';
 
 import collidable from '../mixins/collidable';
 
