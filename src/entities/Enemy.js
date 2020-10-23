@@ -19,7 +19,7 @@ class Enemy extends Phaser.Physics.Arcade.Sprite {
 
   init() {
     this.gravity = 500;
-    this.speed = 250;
+    this.speed = 75;
     this.timeFromLastTurn = 0;
     this.maxPatrolDistance = 200;
     this.currentPatrolDistance = 0;
@@ -40,7 +40,12 @@ class Enemy extends Phaser.Physics.Arcade.Sprite {
     this.scene.events.on(Phaser.Scenes.Events.UPDATE, this.update, this)
   }
 
-  update(time, delta) {
+  update(time) {
+    this.patrol(time);
+  }
+
+  patrol(time) {
+    if (!this.body || !this.body.onFloor()) { return; }
 
     this.currentPatrolDistance += Math.abs(this.body.deltaX());
 
