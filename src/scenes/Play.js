@@ -82,7 +82,7 @@ class Play extends Phaser.Scene {
     const enemyTypes = enemies.getTypes();
 
     spawnLayer.objects.forEach((spawnPoint, i) => {
-      if (i === 1) { return; }
+      // if (i === 1) { return; }
       const enemy = new enemyTypes[spawnPoint.type](this, spawnPoint.x, spawnPoint.y);
       enemy.setPlatformColliders(platformsColliders)
       enemies.add(enemy);
