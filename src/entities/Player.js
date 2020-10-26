@@ -32,6 +32,7 @@ class Player extends Phaser.Physics.Arcade.Sprite {
       this.scene,
       this.scene.config.leftTopCorner.x + 5,
       this.scene.config.leftTopCorner.y + 5,
+      2,
       this.health
     )
 
