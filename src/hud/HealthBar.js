@@ -19,8 +19,17 @@ class HealthBar {
     this.pixelPerHealth = this.size.width / this.value;
 
     scene.add.existing(this.bar);
+    this.draw(x, y)
   }
 
+  draw(x, y) {
+
+    this.bar.clear();
+    const { width, height } = this.size;
+
+    this.bar.fillStyle(0x9B00FF);
+    this.bar.fillRect(x, y, width, height);
+  }
 }
 
 
