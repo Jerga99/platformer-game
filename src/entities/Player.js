@@ -30,11 +30,10 @@ class Player extends Phaser.Physics.Arcade.Sprite {
     this.health = 100;
     this.hp = new HealthBar(
       this.scene,
-      0,0,
+      this.scene.config.leftTopCorner.x,
+      this.scene.config.leftTopCorner.y,
       this.health
     )
-
-    debugger
 
     this.body.setSize(20, 36);
     this.body.setGravityY(this.gravity);
