@@ -30,8 +30,8 @@ class Player extends Phaser.Physics.Arcade.Sprite {
     this.health = 100;
     this.hp = new HealthBar(
       this.scene,
-      this.scene.config.leftTopCorner.x,
-      this.scene.config.leftTopCorner.y,
+      this.scene.config.leftTopCorner.x + 5,
+      this.scene.config.leftTopCorner.y + 5,
       this.health
     )
 

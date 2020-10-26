@@ -24,12 +24,16 @@ class HealthBar {
   }
 
   draw(x, y) {
-
     this.bar.clear();
     const { width, height } = this.size;
 
+    const margin = 2;
+
     this.bar.fillStyle(0x9B00FF);
-    this.bar.fillRect(x, y, width, height);
+    this.bar.fillRect(x, y, width + margin, height + margin);
+
+    this.bar.fillStyle(0xFFFFFF);
+    this.bar.fillRect(x + margin, y + margin, width - margin, height - margin);
   }
 }
 
