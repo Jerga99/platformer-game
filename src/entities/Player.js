@@ -3,8 +3,8 @@ import Phaser from 'phaser';
 import HealthBar from '../hud/HealthBar';
 import initAnimations from './anims/playerAnims';
 import collidable from '../mixins/collidable';
+import anims from '../mixins/anims';
 import Projectiles from '../attacks/Projectiles';
-import Projectile from '../attacks/Projectile';
 
 class Player extends Phaser.Physics.Arcade.Sprite {
   constructor(scene, x, y) {
@@ -15,6 +15,7 @@ class Player extends Phaser.Physics.Arcade.Sprite {
 
     // Mixins
     Object.assign(this, collidable);
+    Object.assign(this, anims);
 
     this.init();
     this.initEvents();
@@ -49,7 +50,7 @@ class Player extends Phaser.Physics.Arcade.Sprite {
     initAnimations(this.scene.anims);
 
     this.scene.input.keyboard.on('keydown-Q', () => {
-      console.log('pressing Q');
+      this.play('throw', true);
       this.projectiles.fireProjectile(this);
     })
   }
@@ -83,6 +84,10 @@ class Player extends Phaser.Physics.Arcade.Sprite {
 
     if (onFloor) {
       this.jumpCount = 0;
+    }
+
+    if (this.isPlayingAnims('throw')) {
+      return;
     }
 
     onFloor ?
