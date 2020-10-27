@@ -18,12 +18,12 @@ class Projectiles extends Phaser.Physics.Arcade.Group {
     })
   }
 
-  fireProjectile() {
+  fireProjectile(initiator) {
     const projectile = this.getFirstDead(false);
 
     if (!projectile) { return; }
 
-    projectile.fire();
+    projectile.fire(initiator.x, initiator.y);
   }
 
 }
