@@ -76,10 +76,8 @@ class Enemy extends Phaser.Physics.Arcade.Sprite {
   }
 
   takesHit(source) {
+    source.deliversHit(this);
     this.health -= source.damage;
-
-    source.setActive(false);
-    source.setVisible(false);
 
     if (this.health <= 0) {
       console.log('Enemy is terminated');
