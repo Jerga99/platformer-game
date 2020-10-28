@@ -13,10 +13,16 @@ class SpriteEffect extends Phaser.Physics.Arcade.Sprite {
 
     this.target = null;
     this.effectName = effectName;
+
+    this.on('animationcomplete', animation => {
+      if (animation.key === this.effectName) {
+        this.destroy();
+      }
+    }, this)
   }
 
   placeEffect() {
-    if (!this.target) { return; }
+    if (!this.target || !this.body) { return; }
     const center = this.target.getCenter();
     this.body.reset(center.x, center.y);
   }
