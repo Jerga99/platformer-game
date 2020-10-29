@@ -35,8 +35,6 @@ class Enemy extends Phaser.Physics.Arcade.Sprite {
     this.rayGraphics = this.scene.add.graphics({lineStyle: {width: 2, color: 0xaa00aa}});
 
     this.body.setGravityY(this.gravity);
-    this.setSize(20, 45);
-    this.setOffset(7, 20);
     this.setCollideWorldBounds(true);
     this.setImmovable(true);
     this.setOrigin(0.5, 1);

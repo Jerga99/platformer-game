@@ -8,6 +8,12 @@ class Birdman extends Enemy {
     initAnims(scene.anims);
   }
 
+  init() {
+    super.init();
+    this.setSize(20, 45);
+    this.setOffset(7, 20);
+  }
+
   update(time, delta) {
     super.update(time, delta);
 
