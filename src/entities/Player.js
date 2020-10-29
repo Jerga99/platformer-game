@@ -5,6 +5,7 @@ import initAnimations from './anims/playerAnims';
 import collidable from '../mixins/collidable';
 import anims from '../mixins/anims';
 import Projectiles from '../attacks/Projectiles';
+import MeleeWeapon from '../attacks/MeleeWeapon';
 
 class Player extends Phaser.Physics.Arcade.Sprite {
   constructor(scene, x, y) {
@@ -32,6 +33,7 @@ class Player extends Phaser.Physics.Arcade.Sprite {
 
     this.lastDirection = Phaser.Physics.Arcade.FACING_RIGHT;
     this.projectiles = new Projectiles(this.scene);
+    this.meleeWeapon = new MeleeWeapon(this.scene, 0, 0, 'sword-attack');
 
     this.health = 100;
     this.hp = new HealthBar(
@@ -52,6 +54,11 @@ class Player extends Phaser.Physics.Arcade.Sprite {
     this.scene.input.keyboard.on('keydown-Q', () => {
       this.play('throw', true);
       this.projectiles.fireProjectile(this);
+    })
+
+    this.scene.input.keyboard.on('keydown-E', () => {
+      this.play('throw', true);
+      this.meleeWeapon.swing(this);
     })
   }
 
