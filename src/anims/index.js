@@ -26,4 +26,14 @@ export default anims => {
     frameRate: 5,
     repeat: -1
   })
+
+  anims.create({
+    key: 'iceball',
+    frames: [
+      { key: 'iceball-1'},
+      { key: 'iceball-2'}
+    ],
+    frameRate: 5,
+    repeat: -1
+  })
 }
