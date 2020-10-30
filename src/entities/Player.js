@@ -160,6 +160,7 @@ class Player extends Phaser.Physics.Arcade.Sprite {
 
     this.health -= source.damage;
     this.hp.decrease(this.health);
+    // source.deliversHit && source.deliversHit(this);
     source.deliversHit(this);
 
     this.scene.time.delayedCall(1000, () => {
