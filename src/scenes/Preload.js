@@ -23,6 +23,10 @@ class Preload extends Phaser.Scene {
       frameWidth: 32, frameHeight: 38, spacing: 32
     })
 
+    this.load.spritesheet('player-slide-sheet', 'assets/player/slide_sheet_2.png', {
+      frameWidth: 32, frameHeight: 38, spacing: 32
+    })
+
     this.load.spritesheet('birdman', 'assets/enemy/enemy_sheet.png', {
       frameWidth: 32, frameHeight: 64, spacing: 32
     })
