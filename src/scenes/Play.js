@@ -14,8 +14,9 @@ class Play extends Phaser.Scene {
   }
 
   create() {
-    const map = this.createMap();
+    this.score = 0;
 
+    const map = this.createMap();
     initAnims(this.anims);
 
     const layers = this.createLayers(map);
@@ -105,8 +106,8 @@ class Play extends Phaser.Scene {
   }
 
   onCollect(entity, collectable) {
-    // disableGameObject -> this will deactivate the object, default: false
-    // hideGameObject -> this will hide the game object. Default: false
+    this.score += collectable.score;
+    console.log(this.score);
     collectable.disableBody(true, true);
   }
 
@@ -122,7 +123,7 @@ class Play extends Phaser.Scene {
     player
       .addCollider(colliders.platformsColliders)
       .addCollider(colliders.projectiles, this.onWeaponHit)
-      .addOverlap(colliders.collectables, this.onCollect)
+      .addOverlap(colliders.collectables, this.onCollect, this)
   }
 
   setupFollowupCameraOn(player) {
