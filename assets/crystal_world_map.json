@@ -227,6 +227,12 @@
                  "height":14,
                  "id":13,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"score",
+                         "type":"int",
+                         "value":10
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -299,6 +305,12 @@
                  "height":14,
                  "id":19,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"score",
+                         "type":"int",
+                         "value":20
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,

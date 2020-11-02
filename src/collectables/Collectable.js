@@ -11,6 +11,8 @@ class Collectable extends Phaser.Physics.Arcade.Sprite {
 
     this.score = 1;
 
+    this.setOrigin(0, 1);
+
     scene.tweens.add({
       targets: this,
       y: this.y - 3,
