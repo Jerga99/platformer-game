@@ -3,6 +3,7 @@ import Phaser from 'phaser';
 import Player from '../entities/Player';
 import Enemies from '../groups/Enemies';
 import Collectables from '../groups/Collectables';
+import Hud from '../hud';
 
 import initAnims from '../anims';
 
@@ -24,6 +25,8 @@ class Play extends Phaser.Scene {
     const player = this.createPlayer(playerZones.start);
     const enemies = this.createEnemies(layers.enemySpawns, layers.platformsColliders);
     const collectables = this.createCollectables(layers.collectables);
+
+    new Hud(this, 0, 0);
 
     this.createEnemyColliders(enemies, {
       colliders: {
