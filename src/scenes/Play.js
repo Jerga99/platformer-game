@@ -90,12 +90,13 @@ class Play extends Phaser.Scene {
 
   createBG(map) {
     const bgObject = map.getObjectLayer('distance_bg').objects[0];
-    this.add.tileSprite(bgObject.x, bgObject.y, this.config.width, bgObject.height, 'bg-spikes-dark')
+
+    this.spikesImage = this.add.tileSprite(bgObject.x, bgObject.y, this.config.width, bgObject.height, 'bg-spikes-dark')
       .setOrigin(0, 1)
       .setDepth(-10)
       .setScrollFactor(0, 1)
 
-    this.add.tileSprite(0, 0, this.config.width, 180, 'sky-play')
+    this.skyImage = this.add.tileSprite(0, 0, this.config.width, 180, 'sky-play')
       .setOrigin(0, 0)
       .setDepth(-11)
       .setScale(1.1)
@@ -191,6 +192,11 @@ class Play extends Phaser.Scene {
       eolOverlap.active = false;
       console.log('Payer has won!');
     })
+  }
+
+  update() {
+    this.spikesImage.tilePositionX = this.cameras.main.scrollX * 0.3;
+    this.skyImage.tilePositionX = this.cameras.main.scrollX * 0.1;
   }
 }
 
