@@ -62,6 +62,17 @@ class Player extends Phaser.Physics.Arcade.Sprite {
 
     this.handleAttacks();
     this.handleMovements();
+
+    this.scene.time.addEvent({
+      delay: 350,
+      repeat: -1,
+      callbackScope: this,
+      callback: () => {
+        if (this.isPlayingAnims('run')) {
+          this.stepSound.play();
+        }
+      }
+    })
   }
 
   initEvents() {
