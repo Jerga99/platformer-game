@@ -106,7 +106,7 @@
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":1344,
+                 "x":528,
                  "y":208
                 }],
          "opacity":1,
@@ -153,8 +153,8 @@
                  "type":"Snaky",
                  "visible":true,
                  "width":0,
-                 "x":480,
-                 "y":208
+                 "x":784,
+                 "y":336
                 }],
          "opacity":1,
          "type":"objectgroup",
