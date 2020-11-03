@@ -39,7 +39,7 @@ class Player extends Phaser.Physics.Arcade.Sprite {
     this.meleeWeapon = new MeleeWeapon(this.scene, 0, 0, 'sword-default');
     this.timeFromLastSwing = null;
 
-    this.health = 30;
+    this.health = 10;
     this.hp = new HealthBar(
       this.scene,
       this.scene.config.leftTopCorner.x + 5,
@@ -64,7 +64,7 @@ class Player extends Phaser.Physics.Arcade.Sprite {
   }
 
   update() {
-    if (this.hasBeenHit || this.isSliding) { return; }
+    if (this.hasBeenHit || this.isSliding || !this.body) { return; }
     const { left, right, space } = this.cursors;
     const isSpaceJustDown = Phaser.Input.Keyboard.JustDown(space);
     const onFloor = this.body.onFloor();
