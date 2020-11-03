@@ -19,6 +19,8 @@ class Play extends Phaser.Scene {
     this.score = 0;
     this.hud = new Hud(this, 0, 0);
 
+    this.playBgMusic();
+
     const map = this.createMap();
     initAnims(this.anims);
 
@@ -53,6 +55,12 @@ class Play extends Phaser.Scene {
     if (gameStatus === 'PLAYER_LOOSE') { return; }
 
     this.createGameEvents();
+  }
+
+  playBgMusic() {
+    if (this.sound.get('theme')) { return; }
+
+    this.sound.add('theme', {loop: true, volume: 0.03}).play();
   }
 
   createMap() {
