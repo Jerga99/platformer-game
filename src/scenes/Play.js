@@ -55,7 +55,7 @@ class Play extends Phaser.Scene {
   }
 
   createMap() {
-    const map = this.make.tilemap({key: 'map'});
+    const map = this.make.tilemap({key: 'level_1'});
     map.addTilesetImage('main_lev_build_1', 'tiles-1');
     map.addTilesetImage('bg_spikes_tileset', 'bg-spikes-tileset');
     return map;
