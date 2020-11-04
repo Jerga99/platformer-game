@@ -1,6 +1,6 @@
 
 
-import Phaser from 'phaser';
+import Phaser, { FacebookInstantGamesLeaderboard } from 'phaser';
 
 import PlayScene from './scenes/Play';
 import PreloadScene from './scenes/Preload';
@@ -20,7 +20,7 @@ const SHARED_CONFIG = {
   width: WIDTH,
   height: HEIGHT,
   zoomFactor: ZOOM_FACTOR,
-  debug: true,
+  debug: false,
   leftTopCorner: {
     x: (WIDTH - (WIDTH / ZOOM_FACTOR)) / 2,
     y: (HEIGHT - (HEIGHT / ZOOM_FACTOR)) / 2
@@ -53,4 +53,7 @@ const config = {
   scene: initScenes()
 }
 
-new Phaser.Game(config);
+// We need to wait until FB SDK is fully loeaded
+FBInstant.initializeAsync().then(() => {
+  new Phaser.Game(config);
+})
