@@ -1,0 +1,19 @@
+
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width, user-scalable=no, minimal-ui">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="full-screen" content="yes" />
+<meta name="screen-orientation" content="portrait" />
+<script src="https://connect.facebook.net/en_US/fbinstant.6.3.js"></script>
+
+
+  // To setup App:
+  // https://developers.facebook.com/apps/async/create/platform-setup/dialog/
+
+  // App setup example:
+  // https://developers.facebook.com/docs/games/instant-games/getting-started/quickstart#app-setup
+
+  // To test App:
+  // https://www.facebook.com/embed/instantgames/YOUR_GAME_ID/player?game_url=http://localhost:8080
