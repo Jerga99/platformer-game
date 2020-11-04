@@ -54,6 +54,11 @@ const config = {
 }
 
 // We need to wait until FB SDK is fully loeaded
-FBInstant.initializeAsync().then(() => {
+
+if (process.env.FB_ENV || process.env.NODE_ENV === 'production') {
+  FBInstant.initializeAsync().then(() => {
+    new Phaser.Game(config);
+  })
+} else {
   new Phaser.Game(config);
-})
+}
